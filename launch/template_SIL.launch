@@ -1,0 +1,41 @@
+<!-- Launch file to activate real-time simulator and connect to it the template_gnc algorithms-->
+<launch>
+  <param name="simulation" type="int" value="3" />
+
+  <group ns="rocket">
+      <rosparam file="$(find rocket_utils)/config/rocket_parameters.yaml" />
+  </group>
+
+  <group ns="actuator">
+      <rosparam file="$(find rocket_utils)/config/actuator_parameters.yaml" />
+  </group>
+
+  <group ns="environment">
+      <rosparam file="$(find rocket_utils)/config/environment_parameters.yaml" />
+  </group>
+
+  <group ns="perturbation">
+      <rosparam file="$(find real_time_simulator)/config/perturbations_parameters.yaml" />
+  </group>
+
+  <group ns="visualization">
+    <rosparam file="$(find real_time_simulator)/config/visualization_parameters.yaml" />
+  </group>
+''
+
+  <node name="template_control" pkg="template_control" type="template_control_node" output ="screen"/>
+  <node name="template_navigation" pkg="template_navigation" type="template_navigation_node" output ="screen"/>
+<!--  <node name="template_guidance" pkg="template_gnc" type="template_guidance" output ="screen"/>-->
+  <node name="template_fsm" pkg="template_fsm" type="template_fsm_node" output ="screen"/>
+  <node name="av_interface" pkg="rocket_utils" type="av_interface.py" output ="screen"/>
+
+  <node name="aerodynamic" pkg="real_time_simulator" type="aerodynamic.py" cwd = "node" />
+  <node name="disturbance" pkg="real_time_simulator" type="disturbance.py" cwd = "node"/>
+  <node name="integrator" pkg="real_time_simulator" type="integrator" cwd = "node" output ="screen"/>
+  <node name="GUI_interface" pkg="real_time_simulator" type="GUI_interface" />
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find real_time_simulator)/GUI/rocket_GUI.perspective"/>
+  <node pkg="rosbag" type="record" name="recorder" args="record -a -O $(find real_time_simulator)/log/log.bag"/>
+
+</launch>
+
+
