@@ -75,6 +75,7 @@ add_message_files(
   State.msg
   Trajectory.msg
   Waypoint.msg
+  StateCovariance.msg
 )
 
 ## Generate services in the 'srv' folder

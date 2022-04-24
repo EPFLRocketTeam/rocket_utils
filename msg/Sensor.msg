@@ -1,4 +1,5 @@
 Header header
 geometry_msgs/Vector3 IMU_acc
 geometry_msgs/Vector3 IMU_gyro
+geometry_msgs/Vector3 IMU_mag
 float64 baro_height
