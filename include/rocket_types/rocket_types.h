@@ -68,6 +68,8 @@ namespace rocket {
         IDLE,
         RAIL,
         LAUNCH,
+        ASCENT,
+        DESCENT,
         COAST,
         STOP
     };

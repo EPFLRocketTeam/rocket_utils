@@ -82,6 +82,10 @@ namespace rocket {
             fsm_msg.state_machine = rocket_utils::FSM::RAIL;
         else if (fsm == RocketFSMState::LAUNCH)
             fsm_msg.state_machine = rocket_utils::FSM::LAUNCH;
+        else if (fsm == RocketFSMState::ASCENT)
+            fsm_msg.state_machine = rocket_utils::FSM::ASCENT;
+        else if (fsm == RocketFSMState::DESCENT)
+            fsm_msg.state_machine = rocket_utils::FSM::DESCENT;
         else if (fsm == RocketFSMState::COAST)
             fsm_msg.state_machine = rocket_utils::FSM::COAST;
         else if (fsm == RocketFSMState::STOP)
@@ -137,6 +141,10 @@ namespace rocket {
             return RocketFSMState::RAIL;
         else if (fsm == rocket_utils::FSM::LAUNCH)
             return RocketFSMState::LAUNCH;
+        else if (fsm == rocket_utils::FSM::ASCENT)
+            return RocketFSMState::ASCENT;
+        else if (fsm == rocket_utils::FSM::DESCENT)
+            return RocketFSMState::DESCENT;
         else if (fsm == rocket_utils::FSM::COAST)
             return RocketFSMState::COAST;
         else if (fsm == rocket_utils::FSM::STOP)
