@@ -25,7 +25,7 @@
 
   <node name="template_control" pkg="template_control" type="template_control_node" output ="screen"/>
   <node name="template_navigation" pkg="template_navigation" type="template_navigation_node" output ="screen"/>
-<!--  <node name="template_guidance" pkg="template_gnc" type="template_guidance" output ="screen"/>-->
+  <node name="template_guidance" pkg="template_guidance" type="template_guidance_node" output ="screen"/>
   <node name="template_fsm" pkg="template_fsm" type="template_fsm_node" output ="screen"/>
   <node name="av_interface" pkg="rocket_utils" type="av_interface.py" output ="screen"/>
 
