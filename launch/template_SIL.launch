@@ -31,6 +31,7 @@
 
   <node name="aerodynamic" pkg="real_time_simulator" type="aerodynamic.py" cwd = "node" />
   <node name="disturbance" pkg="real_time_simulator" type="disturbance.py" cwd = "node"/>
+  <node name="wind_generator" pkg="real_time_simulator" type="wind_generator" cwd = "node" output ="screen"/>
   <node name="integrator" pkg="real_time_simulator" type="integrator" cwd = "node" output ="screen"/>
   <node name="GUI_interface" pkg="real_time_simulator" type="GUI_interface" />
   <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find real_time_simulator)/GUI/rocket_GUI.perspective"/>
