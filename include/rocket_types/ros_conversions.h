@@ -88,18 +88,20 @@ inline rocket_utils::ControlMomentGyro toROS(const RocketControlMomentGyro& cont
 inline rocket_utils::FSM toROS(const RocketFSMState& fsm)
 {
   rocket_utils::FSM fsm_msg;
-  if (fsm == RocketFSMState::IDLE)
+  if (fsm == RocketFSMState::CALIBRATION)
+    fsm_msg.state_machine = rocket_utils::FSM::CALIBRATION;
+  else if (fsm == RocketFSMState::IDLE)
     fsm_msg.state_machine = rocket_utils::FSM::IDLE;
-  else if (fsm == RocketFSMState::RAIL)
-    fsm_msg.state_machine = rocket_utils::FSM::RAIL;
   else if (fsm == RocketFSMState::LAUNCH)
     fsm_msg.state_machine = rocket_utils::FSM::LAUNCH;
+  else if (fsm == RocketFSMState::RAIL)
+    fsm_msg.state_machine = rocket_utils::FSM::RAIL;
   else if (fsm == RocketFSMState::ASCENT)
     fsm_msg.state_machine = rocket_utils::FSM::ASCENT;
-  else if (fsm == RocketFSMState::DESCENT)
-    fsm_msg.state_machine = rocket_utils::FSM::DESCENT;
   else if (fsm == RocketFSMState::COAST)
     fsm_msg.state_machine = rocket_utils::FSM::COAST;
+  else if (fsm == RocketFSMState::LANDING)
+    fsm_msg.state_machine = rocket_utils::FSM::LANDING;
   else if (fsm == RocketFSMState::STOP)
     fsm_msg.state_machine = rocket_utils::FSM::STOP;
   else
@@ -150,24 +152,19 @@ inline RocketControlMomentGyro fromROS(const rocket_utils::ControlMomentGyro& co
   return RocketControlMomentGyro{ control.outer_angle, control.inner_angle, control.torque };
 }
 
-inline RocketFSMState fromROS(const rocket_utils::FSM& fsm_msg)
-{
-  std::string fsm = fsm_msg.state_machine;
-  if (fsm == rocket_utils::FSM::IDLE)
-    return RocketFSMState::IDLE;
-  else if (fsm == rocket_utils::FSM::RAIL)
-    return RocketFSMState::RAIL;
-  else if (fsm == rocket_utils::FSM::LAUNCH)
-    return RocketFSMState::LAUNCH;
-  else if (fsm == rocket_utils::FSM::ASCENT)
-    return RocketFSMState::ASCENT;
-  else if (fsm == rocket_utils::FSM::DESCENT)
-    return RocketFSMState::DESCENT;
-  else if (fsm == rocket_utils::FSM::COAST)
-    return RocketFSMState::COAST;
-  else if (fsm == rocket_utils::FSM::STOP)
-    return RocketFSMState::STOP;
-  else
-    throw std::runtime_error("Invalid FSM state");
-}
+    inline RocketFSMState fromROS(const rocket_utils::FSM &fsm_msg) {
+        std::string fsm = fsm_msg.state_machine;
+        if (fsm == rocket_utils::FSM::IDLE)
+            return RocketFSMState::IDLE;
+        else if (fsm == rocket_utils::FSM::RAIL)
+            return RocketFSMState::RAIL;
+        else if (fsm == rocket_utils::FSM::LAUNCH)
+            return RocketFSMState::LAUNCH;
+        else if (fsm == rocket_utils::FSM::COAST)
+            return RocketFSMState::COAST;
+        else if (fsm == rocket_utils::FSM::STOP)
+            return RocketFSMState::STOP;
+        else
+            throw std::runtime_error("Invalid FSM state");
+    }
 }  // namespace rocket

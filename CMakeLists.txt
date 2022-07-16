@@ -63,19 +63,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate messages in the 'msg' folder
 add_message_files(
-  FILES
-  Accelerometer.msg
-  Barometer.msg
-  Control.msg
-  FSM.msg
-  GimbalControl.msg
-  ControlMomentGyro.msg
-  Gyroscope.msg
-  Sensor.msg
-  State.msg
-  Trajectory.msg
-  Waypoint.msg
-  StateCovariance.msg
+  DIRECTORY msg
 )
 
 ## Generate services in the 'srv' folder
