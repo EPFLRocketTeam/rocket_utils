@@ -69,6 +69,7 @@ add_message_files(
   Control.msg
   FSM.msg
   GimbalControl.msg
+  DroneGimbalControl.msg
   ControlMomentGyro.msg
   Gyroscope.msg
   Sensor.msg
