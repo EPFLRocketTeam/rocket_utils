@@ -2,10 +2,11 @@ Header header
 string state_machine
 time launch_time
 
+string CALIBRATION = Calibration
 string IDLE = Idle
-string RAIL = Rail
 string LAUNCH = Launch
-string ASCENT = Launch
-string DESCENT = Descent
+string RAIL = Rail
+string ASCENT = Ascent
 string COAST = Coast
+string LANDING = Landing
 string STOP = Stop

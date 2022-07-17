@@ -78,12 +78,13 @@ struct RocketControlMomentGyro
 
 enum RocketFSMState
 {
+  CALIBRATION,
   IDLE,
-  RAIL,
   LAUNCH,
+  RAIL,
   ASCENT,
-  DESCENT,
   COAST,
+  LANDING,
   STOP
 };
 }  // namespace rocket
