@@ -62,6 +62,7 @@ inline rocket_utils::State toROS(const RocketState& state)
   rocket_utils::State state_ros;
   state_ros.pose = toROS(state.getPose());
   state_ros.twist = toROS(state.getTwist());
+  state_ros.propeller_mass = state.propeller_mass;
   return state_ros;
 }
 
