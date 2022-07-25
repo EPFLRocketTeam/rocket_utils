@@ -69,6 +69,14 @@ struct RocketGimbalControl
   double thrust;
 };
 
+struct DroneRocketGimbalControl
+{
+  double outer_angle;
+  double inner_angle;
+  double thrust;
+  double torque;
+};
+
 struct RocketControlMomentGyro
 {
   double outer_angle;

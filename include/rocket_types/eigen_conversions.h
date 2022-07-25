@@ -82,6 +82,11 @@ inline Eigen::Vector3d toEigen(const RocketGimbalControl& control)
   return Eigen::Vector3d{ control.outer_angle, control.inner_angle, control.thrust };
 }
 
+inline Eigen::Vector4d toEigen(const DroneRocketGimbalControl& control)
+{
+  return Eigen::Vector4d{ control.outer_angle, control.inner_angle, control.thrust, control.torque };
+}
+
 inline Eigen::Matrix<double, 14, 1> toEigen(const RocketState& state)
 {
   Eigen::Matrix<double, 14, 1> state_eigen;
